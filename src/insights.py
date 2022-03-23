@@ -1,3 +1,4 @@
+from operator import not_
 from src.jobs import read
 
 
@@ -63,8 +64,9 @@ def get_unique_industries(path):
     """
     unique_industries = set()
 
-    for industry in read(path):
-        unique_industries.add(industry["industry"])
+    for job in read(path):
+        if job["industry"] != "":
+            unique_industries.add(job["industry"])
     return unique_industries
 
 
