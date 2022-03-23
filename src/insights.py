@@ -1,4 +1,3 @@
-from operator import not_
 from src.jobs import read
 
 
@@ -88,7 +87,7 @@ def filter_by_industry(jobs, industry):
     filtered_industries = []
 
     for job in read(jobs):
-        if job["industry"] == industry:
+        if job["industry"] != "" and job["industry"] == industry:
             filtered_industries.append(job)
     return filtered_industries
 
