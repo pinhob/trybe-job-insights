@@ -157,6 +157,7 @@ def matches_salary_range(job, salary):
         If `salary` isn't a valid integer
     """
 
+    # com ajuda do Bux na monitoria
     job_salaries_exists = "min_salary" in job and "max_salary" in job
     jobs_salaries_is_number = (
         job_salaries_exists
