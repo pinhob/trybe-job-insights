@@ -19,7 +19,7 @@ def read(path):
 
     Com base em: https://stackoverflow.com/a/50402818
     """
-    with open(path, "r") as file:
+    with open(path) as file:
         reader = csv.DictReader(file, delimiter=",", quotechar='"')
         jobs = list(reader)
-    return jobs
+        return jobs
