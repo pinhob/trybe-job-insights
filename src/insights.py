@@ -1,6 +1,14 @@
 from src.jobs import read
 
+# from jobs import read
 
+
+# helpers
+def check_if_salary_range_is_number(min_salary, max_salary):
+    return isinstance(min_salary, int) and isinstance(max_salary, int)
+
+
+# requisitos
 def get_unique_job_types(path):
     """Checks all different job types and returns a list of them.
 
@@ -203,4 +211,12 @@ def filter_by_salary_range(jobs, salary):
     list
         Jobs whose salary range contains `salary`
     """
-    return []
+
+    def handle_matches_salary_range(job, salary):
+        try:
+            if matches_salary_range(job, salary):
+                return True
+        except ValueError:
+            pass
+
+    return [job for job in jobs if handle_matches_salary_range(job, salary)]
